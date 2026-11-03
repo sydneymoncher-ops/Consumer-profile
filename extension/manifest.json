@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Signal / Self — Private History Connector",
+  "version": "1.0.0",
+  "description": "With your approval, transfers a selected period of Chrome browsing history to your local Consumer Intelligence Lab dashboard.",
+  "permissions": [],
+  "optional_permissions": ["history"],
+  "host_permissions": ["https://sydneymoncher-ops.github.io/*"],
+  "action": {
+    "default_title": "Connect history to Signal / Self",
+    "default_popup": "popup.html",
+    "default_icon": {"16":"icons/icon16.png","48":"icons/icon48.png","128":"icons/icon128.png"}
+  },
+  "icons": {"16":"icons/icon16.png","48":"icons/icon48.png","128":"icons/icon128.png"},
+  "background": {"service_worker":"background.js"},
+  "content_scripts": [{
+    "matches": ["https://sydneymoncher-ops.github.io/Consumer-profile/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }]
+}
